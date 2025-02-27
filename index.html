@@ -21,12 +21,13 @@
 
 <body class="p-[60px] bg-orange-500">
     <div class="flex justify-between bg-white p-4 rounded">
-        <input id="busca" type="text" placeholder="Buscar produto" class="h-[40px] border-2 rounded pl-3 focus:outline-orange-500 duration-200">
+        <input id="busca" type="text" placeholder="Buscar produto" class="h-[40px] border-2 rounded pl-3 focus:outline-orange-500 duration-200"  
+        oninput="buscarProdutosPorNome(event.target.value)">
         <div>
             <select id="categorias" class="h-[40px] border-2 px-3 rounded focus:outline-orange-500" onchange="filtrarPorCategoria(event.target.value)">
                 <option selected disabled>Filtrar categoria</option>
             </select>
-            <select id="filtros" class="h-[40px] border-2 px-3 rounded focus:outline-orange-500">
+            <select id="filtros" class="h-[40px] border-2 px-3 rounded focus:outline-orange-500" onchange="filtrarProdutos(event.target.value)">
                 <option selected disabled>Filtrar por</option>
                 <option value="menorPreco">Menor Preço</option>
                 <option value="maiorAvaliacao">Melhor Avaliado</option>

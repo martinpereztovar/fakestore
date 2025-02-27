@@ -54,3 +54,28 @@ function filtrarPorCategoria(categoria){
     carregarProdutos(filtrados)
 }
 
+
+function filtrarPorMenorPreco(){
+    let ordenados = [...produtos].sort((a, b) => a.price - b.price);
+    carregarProdutos(ordenados);
+}
+
+function filtrarPorMaiorAvaliacao(){
+    let ordenados = [...produtos].sort((a, b) => b.rating.rate - a.rating.rate);
+    carregarProdutos(ordenados);
+}
+
+function filtrarProdutos(filtro) {
+    if (filtro === "menorPreco") {
+        filtrarPorMenorPreco();
+    } else if (filtro === "maiorAvaliacao") {
+        filtrarPorMaiorAvaliacao();
+    }
+}
+
+function buscarProdutosPorNome(termo) {
+    let filtrados = produtos.filter((produto) => 
+        produto.title.toLowerCase().includes(termo.toLowerCase())
+    );
+    carregarProdutos(filtrados);
+}
